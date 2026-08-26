@@ -184,7 +184,7 @@ function Index() {
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
+            <Reveal>
               <p className="eyebrow">About</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 A small studio, senior delivery
@@ -198,8 +198,8 @@ function Index() {
                 We document everything we build and hand over full ownership, so your automations
                 stay maintainable long after the project ends.
               </p>
-            </div>
-            <div className="card-surface p-8">
+            </Reveal>
+            <Reveal delay={150} className="card-surface p-8">
               <ul className="grid gap-5">
                 {[
                   "Fixed-scope pilots so you can start small",
@@ -213,7 +213,7 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </section>
 
