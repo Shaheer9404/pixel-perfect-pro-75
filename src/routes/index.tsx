@@ -3,6 +3,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ContactForm } from "@/components/ContactForm";
 import { LogoMark, Logo } from "@/components/Logo";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,24 +78,33 @@ function Index() {
             width={1920}
             height={1088}
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-70"
+            className="animate-kenburns absolute inset-0 h-full w-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
           <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-36">
-            <p className="eyebrow">devstack studios</p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl">
+            <p className="eyebrow hero-enter">devstack studios</p>
+            <h1
+              className="hero-enter mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl"
+              style={{ animationDelay: "120ms" }}
+            >
               Workflow automation, systems integration, and{" "}
               <span className="text-gradient-accent">AI agents</span> for growing businesses.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p
+              className="hero-enter mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+              style={{ animationDelay: "240ms" }}
+            >
               We take the repetitive work out of your operations — connecting the tools you already
               use, automating the steps in between, and putting AI to work where it genuinely pays
               off.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div
+              className="hero-enter mt-10 flex flex-wrap gap-3"
+              style={{ animationDelay: "360ms" }}
+            >
               <a
                 href="#contact"
-                className="rounded-md bg-gradient-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+className="hover-scale rounded-md bg-gradient-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
                 Book an automation audit
               </a>
@@ -111,11 +121,11 @@ function Index() {
         {/* Stats */}
         <section className="border-b border-border/70 bg-surface/40">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label}>
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 90}>
                 <p className="text-3xl font-bold tracking-tight text-mint">{s.value}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -127,20 +137,22 @@ function Index() {
             Built around how your business actually runs
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {services.map((s) => (
-              <article key={s.title} className="card-surface p-7">
-                <LogoMark className="mb-6" />
-                <h3 className="text-xl font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                <ul className="mt-5 grid gap-2">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2.5 text-sm text-secondary-foreground">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 110} className="h-full">
+                <article className="card-surface h-full p-7">
+                  <LogoMark className="mb-6" />
+                  <h3 className="text-xl font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                  <ul className="mt-5 grid gap-2">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-center gap-2.5 text-sm text-secondary-foreground">
+                        <span className="animate-pulse-dot h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -156,14 +168,14 @@ function Index() {
               A clear path from manual to automated
             </h2>
             <div className="mt-12 grid gap-8 md:grid-cols-4">
-              {process.map((p) => (
-                <div key={p.step} className="border-t border-border pt-6">
+              {process.map((p, i) => (
+                <Reveal key={p.step} delay={i * 110} className="border-t border-border pt-6">
                   <span className="text-sm font-semibold tracking-widest text-primary">
                     {p.step}
                   </span>
                   <h3 className="mt-3 text-lg font-semibold text-foreground">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -172,7 +184,7 @@ function Index() {
         {/* About */}
         <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
-            <div>
+            <Reveal>
               <p className="eyebrow">About</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 A small studio, senior delivery
@@ -186,8 +198,8 @@ function Index() {
                 We document everything we build and hand over full ownership, so your automations
                 stay maintainable long after the project ends.
               </p>
-            </div>
-            <div className="card-surface p-8">
+            </Reveal>
+            <Reveal delay={150} className="card-surface p-8">
               <ul className="grid gap-5">
                 {[
                   "Fixed-scope pilots so you can start small",
@@ -201,7 +213,7 @@ function Index() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -211,7 +223,7 @@ function Index() {
           className="scroll-mt-24 border-t border-border/70 bg-surface/40 py-24"
         >
           <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
-            <div>
+            <Reveal>
               <p className="eyebrow">Contact</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Tell us where the manual work is
@@ -237,10 +249,10 @@ function Index() {
                   <dd className="font-medium text-foreground">+92 300 0000000</dd>
                 </div>
               </dl>
-            </div>
-            <div className="card-surface p-7 hover:translate-y-0 hover:shadow-none">
+            </Reveal>
+            <Reveal delay={150} className="card-surface p-7 hover:translate-y-0 hover:shadow-none">
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>
