@@ -104,7 +104,7 @@ function Index() {
             >
               <a
                 href="#contact"
-                className="rounded-md bg-gradient-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+className="hover-scale rounded-md bg-gradient-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
                 Book an automation audit
               </a>
@@ -223,7 +223,7 @@ function Index() {
           className="scroll-mt-24 border-t border-border/70 bg-surface/40 py-24"
         >
           <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
-            <div>
+            <Reveal>
               <p className="eyebrow">Contact</p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 Tell us where the manual work is
@@ -249,10 +249,10 @@ function Index() {
                   <dd className="font-medium text-foreground">+92 300 0000000</dd>
                 </div>
               </dl>
-            </div>
-            <div className="card-surface p-7 hover:translate-y-0 hover:shadow-none">
+            </Reveal>
+            <Reveal delay={150} className="card-surface p-7 hover:translate-y-0 hover:shadow-none">
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>
