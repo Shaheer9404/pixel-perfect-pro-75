@@ -3,6 +3,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ContactForm } from "@/components/ContactForm";
 import { LogoMark, Logo } from "@/components/Logo";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,21 +78,30 @@ function Index() {
             width={1920}
             height={1088}
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-70"
+            className="animate-kenburns absolute inset-0 h-full w-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
           <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-36">
-            <p className="eyebrow">devstack studios</p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl">
+            <p className="eyebrow hero-enter">devstack studios</p>
+            <h1
+              className="hero-enter mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-foreground md:text-6xl"
+              style={{ animationDelay: "120ms" }}
+            >
               Workflow automation, systems integration, and{" "}
               <span className="text-gradient-accent">AI agents</span> for growing businesses.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p
+              className="hero-enter mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+              style={{ animationDelay: "240ms" }}
+            >
               We take the repetitive work out of your operations — connecting the tools you already
               use, automating the steps in between, and putting AI to work where it genuinely pays
               off.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div
+              className="hero-enter mt-10 flex flex-wrap gap-3"
+              style={{ animationDelay: "360ms" }}
+            >
               <a
                 href="#contact"
                 className="rounded-md bg-gradient-accent px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
