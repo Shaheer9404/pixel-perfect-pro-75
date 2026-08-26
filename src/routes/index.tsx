@@ -121,11 +121,11 @@ function Index() {
         {/* Stats */}
         <section className="border-b border-border/70 bg-surface/40">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label}>
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 90}>
                 <p className="text-3xl font-bold tracking-tight text-mint">{s.value}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -137,20 +137,22 @@ function Index() {
             Built around how your business actually runs
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {services.map((s) => (
-              <article key={s.title} className="card-surface p-7">
-                <LogoMark className="mb-6" />
-                <h3 className="text-xl font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-                <ul className="mt-5 grid gap-2">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2.5 text-sm text-secondary-foreground">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 110} className="h-full">
+                <article className="card-surface h-full p-7">
+                  <LogoMark className="mb-6" />
+                  <h3 className="text-xl font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                  <ul className="mt-5 grid gap-2">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-center gap-2.5 text-sm text-secondary-foreground">
+                        <span className="animate-pulse-dot h-1.5 w-1.5 shrink-0 rounded-full bg-mint" />
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -166,14 +168,14 @@ function Index() {
               A clear path from manual to automated
             </h2>
             <div className="mt-12 grid gap-8 md:grid-cols-4">
-              {process.map((p) => (
-                <div key={p.step} className="border-t border-border pt-6">
+              {process.map((p, i) => (
+                <Reveal key={p.step} delay={i * 110} className="border-t border-border pt-6">
                   <span className="text-sm font-semibold tracking-widest text-primary">
                     {p.step}
                   </span>
                   <h3 className="mt-3 text-lg font-semibold text-foreground">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
