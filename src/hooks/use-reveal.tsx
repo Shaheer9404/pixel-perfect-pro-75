@@ -17,6 +17,7 @@ export function useReveal<T extends HTMLElement>(options?: {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!entry) return;
         if (entry.isIntersecting) {
           setVisible(true);
           if (once) observer.disconnect();
